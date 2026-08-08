@@ -45,6 +45,9 @@ export default function YouTubePlayerCard({ videoId = "hICNu-xTBsU" }) {
 
   return (
     <div className="player-card-container">
+      {/* Ambient Glow Aura */}
+      <div className="player-ambient-glow" />
+
       <div className="player-frame-wrapper">
         {/* YouTube Video Embedded inside the Top Screen Area */}
         <div className="youtube-screen-area">

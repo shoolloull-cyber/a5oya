@@ -124,11 +124,13 @@ export default function CelebrationSection({ isVisible }) {
           />
         ))}
 
+        {/* Fade In on Scroll for Music & Message Grid */}
         <motion.div 
           className="player-and-text-grid"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* مشغل الأغنية */}
           <div className="grid-player-column">
