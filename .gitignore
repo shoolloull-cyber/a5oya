@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.env
+.env.local
+prepare_images.py
+prepare_new_assets.py
+copy_assets2.py
+copy_gallery.py
+copy_v4_assets.py
+copy_wave_asset.py

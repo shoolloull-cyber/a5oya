@@ -1,0 +1,653 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@400;600;700&family=Gaegu:wght@400;700&family=Patrick+Hand&family=Short+Stack&display=swap');
+
+:root {
+  --font-handwriting: 'Caveat', 'Patrick Hand', 'Architects Daughter', cursive;
+  --font-doodle: 'Gaegu', 'Caveat', 'Short Stack', cursive;
+  --bg-section1: linear-gradient(135deg, #fffcf5 0%, #f7ebe1 50%, #edd8ca 100%);
+  --bg-section2: #4C6190;
+  --bg-section3: #334366;
+  --bg-section4: #1F2942;
+  --text-dark: #2c221e;
+  --text-light: #ffffff;
+  --gold-glow: rgba(255, 223, 133, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: var(--font-handwriting);
+  scroll-behavior: smooth;
+  background-color: #fffcf5;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1F2942;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffb7b2;
+  border-radius: 4px;
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 1.2rem;
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 3rem 0.8rem;
+  }
+}
+
+/* ============= SECTION 1: ENVELOPE ============= */
+.section-envelope {
+  min-height: 100vh;
+  background: var(--bg-section1);
+  color: var(--text-dark);
+  justify-content: center;
+}
+
+.doodle-title-top {
+  font-family: var(--font-handwriting);
+  font-size: clamp(2.8rem, 8vw, 4.8rem);
+  font-weight: 700;
+  color: #3d2b27;
+  margin-bottom: 2.5rem;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8), 3px 3px 6px rgba(0,0,0,0.06);
+  transform: rotate(-1.5deg);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.doodle-title-bottom {
+  font-family: var(--font-handwriting);
+  font-size: clamp(2.1rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #3d2b27;
+  margin-top: 2.5rem;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8), 3px 3px 6px rgba(0,0,0,0.06);
+  transform: rotate(1.2deg);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.envelope-wrapper {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1rem;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.envelope-wrapper:hover {
+  transform: scale(1.08);
+}
+
+.envelope-img {
+  width: clamp(230px, 60vw, 380px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.12));
+  animation: gentleShakeFloat 3.2s ease-in-out infinite;
+}
+
+@keyframes gentleShakeFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  20% { transform: translateY(-8px) rotate(-3deg); }
+  40% { transform: translateY(-4px) rotate(2.5deg); }
+  60% { transform: translateY(-10px) rotate(-2deg); }
+  80% { transform: translateY(-2px) rotate(1.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* ============= SECTION 2: AGE 23 GRAPHIC (#4C6190) ============= */
+.celebration-full-flow {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section-birthday {
+  background-color: var(--bg-section2);
+  color: var(--text-light);
+  min-height: 80vh;
+  padding-top: 5rem;
+  padding-bottom: 3.5rem;
+}
+
+/* Garland Ceiling Arc */
+.garland-ceiling-arc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.garland-svg-arc {
+  width: 100%;
+  height: 120px;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.hanging-star-bulb {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: starLightPulse 2.2s ease-in-out infinite alternate;
+}
+
+.star-glow-halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 221, 103, 0.6);
+  filter: blur(8px);
+  z-index: -1;
+}
+
+@keyframes starLightPulse {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.25); opacity: 1; }
+}
+
+/* Restored Balloon Bouquets - Section 2 */
+.floating-balloon-bouquet {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+  width: clamp(100px, 20vw, 190px);
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.25));
+  animation: bouquetFloat 5s ease-in-out infinite alternate;
+}
+
+.left-bouquet {
+  top: 15%;
+  left: 2%;
+  animation-delay: 0s;
+}
+
+.right-bouquet {
+  top: 18%;
+  right: 2%;
+  animation-delay: 1.5s;
+}
+
+.balloon-bouquet-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes bouquetFloat {
+  0% { transform: translateY(0px) rotate(-3deg); }
+  100% { transform: translateY(-20px) rotate(4deg); }
+}
+
+/* Age 23 Boy Artwork */
+.birthday-art-wrapper {
+  position: relative;
+  z-index: 5;
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.birthday-art-card {
+  position: relative;
+  border-radius: 24px;
+  padding: 8px;
+  background: transparent;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+  transition: transform 0.4s ease, filter 0.4s ease;
+  animation: floatingCard 4s ease-in-out infinite alternate;
+}
+
+.birthday-art-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 25px rgba(255, 223, 133, 0.4));
+}
+
+.birthday-art-img {
+  width: clamp(260px, 75vw, 520px);
+  max-height: 48vh;
+  object-fit: contain;
+  border-radius: 16px;
+  display: block;
+}
+
+@keyframes floatingCard {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
+}
+
+/* Handwriting Text */
+.handwriting-container {
+  position: relative;
+  z-index: 5;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.handwriting-text {
+  font-family: var(--font-handwriting);
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.4);
+  letter-spacing: 1.2px;
+  line-height: 1.3;
+}
+
+.typing-pencil-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.2em;
+  background-color: #ffdd67;
+  margin-left: 6px;
+  vertical-align: middle;
+  box-shadow: 0 0 8px #ffdd67;
+  animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ============= SVG STAR WAVE DIVIDER ============= */
+.star-wave-divider-wrapper {
+  width: 100%;
+  height: clamp(60px, 12vw, 110px);
+  background-color: var(--bg-section2);
+  margin-top: -1px;
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 12;
+  overflow: hidden;
+}
+
+.star-wave-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+}
+
+/* ============= SECTION 3: MUSIC PLAYER & BROTHERHOOD LETTER (#334366) ============= */
+.section-music-letter {
+  background-color: var(--bg-section3);
+  color: var(--text-light);
+  min-height: 90vh;
+  padding-top: 4.5rem;
+  padding-bottom: 5rem;
+}
+
+/* Custom Realistic Floating Balloons - Section 3 */
+.realistic-floating-balloon {
+  pointer-events: none;
+  z-index: 3;
+  animation: balloonSwayFloat 6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+  opacity: 0.88;
+}
+
+@keyframes balloonSwayFloat {
+  0% { transform: translateY(0px) rotate(-3deg); }
+  50% { transform: translateY(-22px) rotate(3deg); }
+  100% { transform: translateY(-8px) rotate(-2deg); }
+}
+
+.player-and-text-grid {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(270px, 330px) 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  padding: 0 1rem;
+}
+
+@media (max-width: 860px) {
+  .player-and-text-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 2.5rem;
+    padding: 0 0.5rem;
+  }
+}
+
+.grid-player-column {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.player-card-container {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+}
+
+.player-frame-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 30px;
+  overflow: visible;
+}
+
+.player-frame-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  position: relative;
+  z-index: 2;
+}
+
+.youtube-screen-area {
+  position: absolute;
+  top: 14%;
+  left: 10.5%;
+  width: 79%;
+  height: 43%;
+  z-index: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+}
+
+.youtube-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Player Control Overlay Buttons */
+.player-controls-overlay {
+  position: absolute;
+  bottom: 23%;
+  left: 12%;
+  width: 76%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  z-index: 10;
+}
+
+.yt-ctrl-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+}
+
+.yt-ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.12);
+}
+
+.yt-ctrl-btn.play-main {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Right Column Text Card */
+.grid-text-column {
+  position: relative;
+  width: 100%;
+}
+
+.message-content-box {
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .message-content-box {
+    padding: 1.5rem 1.2rem;
+  }
+}
+
+.doodle-message-title {
+  font-family: var(--font-handwriting);
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.doodle-message-body {
+  font-family: var(--font-handwriting);
+  font-size: clamp(1.45rem, 4.2vw, 2.2rem);
+  font-weight: 600;
+  color: #f3f6fc;
+  line-height: 1.5;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.8px;
+  margin-bottom: 0.8rem;
+}
+
+.doodle-message-body-expanded {
+  font-family: var(--font-handwriting);
+  font-size: clamp(1.4rem, 3.8vw, 2.1rem);
+  font-weight: 600;
+  color: #ffdd67;
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.6px;
+}
+
+.grid-sticker {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+}
+
+.flork-sticker {
+  width: clamp(75px, 16vw, 130px);
+  top: -42px;
+  left: -15px;
+  transform: rotate(-10deg);
+  animation: stickerBob 3.5s ease-in-out infinite alternate;
+}
+
+.cupcake-sticker {
+  width: clamp(50px, 10vw, 85px);
+  top: -22px;
+  right: 15px;
+  transform: rotate(12deg);
+  animation: stickerBob 4s ease-in-out infinite alternate-reverse;
+}
+
+.star-sticker {
+  width: clamp(40px, 8vw, 70px);
+  bottom: -20px;
+  right: -10px;
+  transform: rotate(20deg);
+  animation: stickerBob 3s ease-in-out infinite alternate;
+}
+
+@keyframes stickerBob {
+  0% { transform: rotate(-10deg) translateY(0px); }
+  100% { transform: rotate(-6deg) translateY(-8px); }
+}
+
+/* ============= SECTION 4: TOUCH PHOTO BOOK GALLERY (#1F2942) ============= */
+.section-photobook-container {
+  min-height: 100vh;
+  background-color: var(--bg-section4);
+  color: var(--text-light);
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+  border-top: 3px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+.photobook-inner-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+.photobook-title {
+  font-family: var(--font-handwriting);
+  font-size: clamp(2.4rem, 6.5vw, 4.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+}
+
+.photobook-subtitle {
+  font-family: var(--font-handwriting);
+  font-size: clamp(1.35rem, 4vw, 2.2rem);
+  color: #ffdd67;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Touch-only Swiper styling */
+.swiper-cards-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 3.5rem 0;
+}
+
+.touchCardsSwiper {
+  width: clamp(270px, 82vw, 370px);
+  height: 490px;
+}
+
+.clean-touch-slide {
+  border-radius: 22px;
+}
+
+.clean-polaroid-card {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 16px 16px 24px 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.clean-polaroid-card:hover {
+  transform: translateY(-6px);
+}
+
+.clean-img-box {
+  width: 100%;
+  height: 340px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111;
+}
+
+.clean-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.clean-caption-area {
+  margin-top: 14px;
+  text-align: center;
+  color: #2c221e;
+}
+
+.clean-caption {
+  font-family: var(--font-handwriting);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #222222;
+  line-height: 1.2;
+}
+
+.clean-sub {
+  font-family: var(--font-handwriting);
+  font-size: 1.25rem;
+  color: #666666;
+  margin-top: 4px;
+}
+
+.swiper-pagination-bullet {
+  background: #ffffff !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ffdd67 !important;
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+}
