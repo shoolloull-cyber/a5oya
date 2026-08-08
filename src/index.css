@@ -133,9 +133,13 @@ html, body {
 .section-birthday {
   background-color: var(--bg-section2);
   color: var(--text-light);
-  min-height: 80vh;
-  padding-top: 5rem;
-  padding-bottom: 3.5rem;
+  min-height: 90vh;
+  padding-top: 5.5rem;
+  padding-bottom: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Garland Ceiling Arc */
@@ -213,11 +217,11 @@ html, body {
   100% { transform: translateY(-20px) rotate(4deg); }
 }
 
-/* Age 23 Boy Artwork */
+/* Age 23 Boy Artwork - Enlarged & Centered on Mobile */
 .birthday-art-wrapper {
   position: relative;
   z-index: 5;
-  margin: 1.5rem 0;
+  margin: 2rem 0 1.5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -239,8 +243,8 @@ html, body {
 }
 
 .birthday-art-img {
-  width: clamp(260px, 75vw, 520px);
-  max-height: 48vh;
+  width: clamp(310px, 88vw, 560px);
+  max-height: 56vh;
   object-fit: contain;
   border-radius: 16px;
   display: block;
@@ -267,7 +271,7 @@ html, body {
 
 .handwriting-text {
   font-family: var(--font-handwriting);
-  font-size: clamp(2rem, 6vw, 3.8rem);
+  font-size: clamp(2.1rem, 6.5vw, 3.8rem);
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.4);
