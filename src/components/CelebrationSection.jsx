@@ -13,7 +13,7 @@ const REALISTIC_BALLOON_COLORS = ['#ff6b8a', '#ffdd67', '#7ecbff', '#c88fff', '#
 function RealisticBalloon({ color, style }) {
   return (
     <div className="realistic-floating-balloon" style={style}>
-      <svg width="52" height="70" viewBox="0 0 52 70">
+      <svg width="48" height="66" viewBox="0 0 52 70">
         <defs>
           <radialGradient id={`balloon-grad-${color.replace('#','')}`} cx="35%" cy="30%" r="65%">
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.65" />
@@ -111,34 +111,45 @@ export default function CelebrationSection({ isVisible }) {
       {/* ===== سيكشن 3: الأغنية والرسالة والبلالين ===== */}
       {/* ========================================================= */}
       <section className="section section-music-letter" id="section3">
-        {REALISTIC_BALLOON_COLORS.map((color, i) => (
-          <RealisticBalloon 
-            key={i} 
-            color={color}
-            style={{
-              position: 'absolute',
-              left: `${8 + i * 16}%`,
-              top: `${12 + (i % 3) * 22}%`,
-              animationDelay: `${i * 0.8}s`,
-            }}
-          />
-        ))}
+        {/* البلالين المتطايرة محاذية للطرفين تماماً عشان تبان على الموبايل */}
+        {REALISTIC_BALLOON_COLORS.map((color, i) => {
+          // توزيع البلالين على الجانب الأيمن والأيسر
+          const isLeft = i % 2 === 0;
+          const sidePosition = isLeft ? `${2 + i * 4}%` : `${84 - (i - 1) * 3}%`;
+          return (
+            <RealisticBalloon 
+              key={i} 
+              color={color}
+              style={{
+                position: 'absolute',
+                left: sidePosition,
+                top: `${10 + (i % 3) * 28}%`,
+                animationDelay: `${i * 0.7}s`,
+              }}
+            />
+          );
+        })}
 
-        {/* Fade In on Scroll for Music & Message Grid */}
-        <motion.div 
-          className="player-and-text-grid"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          {/* مشغل الأغنية */}
-          <div className="grid-player-column">
+        <div className="player-and-text-grid">
+          {/* مشغل الأغنية ينزلق بسلاسة من الشمال على السكرول */}
+          <motion.div 
+            className="grid-player-column"
+            initial={{ opacity: 0, x: -70 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.85, ease: "easeOut" }}
+          >
             <YouTubePlayerCard videoId="hICNu-xTBsU" />
-          </div>
+          </motion.div>
 
-          {/* رسالة التهنئة الإنجليزية */}
-          <div className="grid-text-column">
+          {/* رسالة التهنئة تنزلق بسلاسة من اليمين على السكرول */}
+          <motion.div 
+            className="grid-text-column"
+            initial={{ opacity: 0, x: 70 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.85, delay: 0.15, ease: "easeOut" }}
+          >
             <img src="/assets/flork_cake_trans.png" alt="Flork Cake Sticker" className="grid-sticker flork-sticker" />
             <img src="/assets/cupcake_trans.png" alt="Cupcake Sticker" className="grid-sticker cupcake-sticker" />
             <img src="/assets/star_trans.png" alt="Star Patch Sticker" className="grid-sticker star-sticker" />
@@ -152,8 +163,8 @@ export default function CelebrationSection({ isVisible }) {
                 Thank you for being the most genuine, loyal, and real brother anyone could ever ask for. Through every gym workout, late-night laugh, and wild adventure, we've built memories that will last a lifetime. May this year bring you unstoppable success, health, happiness, and everything your heart desires! Cheers to many more years of brotherhood! ✨💙🔥
               </p>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* ========================================================= */}
