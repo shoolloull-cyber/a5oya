@@ -134,8 +134,8 @@ html, body {
   background-color: var(--bg-section2);
   color: var(--text-light);
   min-height: 90vh;
-  padding-top: 5.5rem;
-  padding-bottom: 4.5rem;
+  padding-top: 6rem;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -217,11 +217,11 @@ html, body {
   100% { transform: translateY(-20px) rotate(4deg); }
 }
 
-/* Age 23 Boy Artwork */
+/* Age 23 Boy Artwork - Enlarged & Shifted Downward */
 .birthday-art-wrapper {
   position: relative;
   z-index: 5;
-  margin: 1.5rem 0;
+  margin: 3.5rem 0 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -243,8 +243,8 @@ html, body {
 }
 
 .birthday-art-img {
-  width: clamp(340px, 94vw, 620px);
-  max-height: 64vh;
+  width: clamp(360px, 98vw, 700px);
+  max-height: 72vh;
   object-fit: contain;
   border-radius: 16px;
   display: block;
@@ -259,8 +259,8 @@ html, body {
 .handwriting-container {
   position: relative;
   z-index: 5;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   min-height: 4rem;
   display: flex;
